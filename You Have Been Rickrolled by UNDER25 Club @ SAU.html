@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>You Have Been Rickrolled by UNDER25 Club @ SAU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#e8391d; --ink:#1a1230; --paper:#fff4e0; --pop:#ffc93c;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#c92b14;--ink:#120c24;--paper:#fff0d6;--pop:#ffc93c}}
+:root[data-theme="dark"]{--bg:#c92b14;--ink:#120c24;--paper:#fff0d6;--pop:#ffc93c}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0;min-height:100%;background:var(--bg);color:var(--ink);
+  font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  display:flex;flex-direction:column;overflow-x:hidden;
+}
+main{
+  flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
+  gap:clamp(24px,4vw,64px);align-items:center;
+  padding:clamp(20px,4vw,56px);max-width:1400px;width:100%;margin:0 auto;
+}
+h1{margin:0;font-weight:800;line-height:.88;letter-spacing:-.035em;font-size:clamp(3rem,8.2vw,7.6rem);color:var(--paper);text-wrap:balance}
+h1 .by{
+  display:block;margin-top:.35em;font-size:clamp(1.05rem,2.1vw,1.7rem);font-weight:500;
+  letter-spacing:-.005em;line-height:1.25;color:var(--ink);
+}
+h1 .by b{font-weight:800;background:var(--pop);padding:.05em .3em;border-radius:.25em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.stage{position:relative}
+.frame{
+  position:relative;aspect-ratio:16/9;background:var(--ink);border:4px solid var(--ink);
+  border-radius:14px;box-shadow:14px 14px 0 var(--ink);overflow:hidden;
+}
+.frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.sound{
+  position:absolute;left:14px;bottom:14px;z-index:2;font:inherit;font-weight:800;font-size:1rem;
+  background:var(--pop);color:var(--ink);border:3px solid var(--ink);border-radius:999px;
+  padding:.6em 1.1em;cursor:pointer;box-shadow:4px 4px 0 var(--ink);
+  transition:transform .12s,box-shadow .12s;
+}
+.sound:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.sound:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.sound:focus-visible,.fallback a:focus-visible{outline:3px solid var(--paper);outline-offset:3px}
+.sound[hidden]{display:none}
+.fallback{margin:26px 0 0;font-size:1rem;font-weight:500}
+.fallback a{color:var(--ink);font-weight:800;text-underline-offset:.2em}
+.ticker{background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;padding:.7em 0;font-weight:800;font-size:1.05rem;letter-spacing:.01em}
+.ticker div{display:inline-block;padding-left:100%;animation:run 26s linear infinite}
+@keyframes run{to{transform:translateX(-100%)}}
+@media (max-width:820px){
+  main{grid-template-columns:minmax(0,1fr);gap:32px;align-items:start;padding-top:28px}
+  h1{font-size:clamp(3rem,15vw,5.5rem)}
+  .frame{box-shadow:9px 9px 0 var(--ink)}
+}
+@media (prefers-reduced-motion:reduce){.ticker div{animation:none;padding-left:1em}}
+</style>
+</head>
+<body>
+<main>
+  <h1>You Have Been Rickrolled <span class="by">by <b>UNDER25 Club @ SAU</b></span></h1>
+  <div class="stage">
+    <div class="frame">
+      <video id="vid" autoplay muted playsinline loop>
+        <source src="rickroll.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <button class="sound" id="sound" type="button">Turn sound on</button>
+    </div>
+    <p class="fallback">Video not playing? <a href="rickroll.mp4" target="_blank" rel="noopener">Open direct video</a></p>
+  </div>
+</main>
+<div class="ticker" aria-hidden="true"><div>You Have Been Rickrolled by UNDER25 Club @ SAU &nbsp;&nbsp;&nbsp; You Have Been Rickrolled by UNDER25 Club @ SAU &nbsp;&nbsp;&nbsp; You Have Been Rickrolled by UNDER25 Club @ SAU &nbsp;&nbsp;&nbsp; You Have Been Rickrolled by UNDER25 Club @ SAU</div></div>
+
+<script>
+  const video = document.getElementById('vid');
+  const soundBtn = document.getElementById('sound');
+
+  soundBtn.addEventListener('click', () => {
+    video.muted = false;
+    video.play();
+    soundBtn.hidden = true;
+  });
+</script>
+</body>
+</html>
